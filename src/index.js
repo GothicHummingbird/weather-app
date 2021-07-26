@@ -68,6 +68,16 @@ function displayWeather(response) {
   let currentHumidity = document.querySelector("#humidity");
   let humidity = response.data.main.humidity;
   currentHumidity.innerHTML = `Humidity: ${humidity}%`;
+
+  let currentWeatherIcon = document.querySelector("#current-weather-icon");
+  currentWeatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@4x.png`
+  );
+  currentWeatherIcon.setAttribute(
+    "alt",
+    `${response.data.weather[0].description}`
+  );
 }
 
 //Geolocation API

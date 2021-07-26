@@ -35,10 +35,6 @@ input.search {
 h1 {
   color: rgb(61, 64, 91);
 }
-img.current-weather {
-  width: 75%;
-  margin: 0 auto;
-}
 .date-time,
 .weather,
 .wind,
