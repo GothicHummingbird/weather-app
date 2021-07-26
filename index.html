@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Eva's Weather App 🌡</title>
-    <link rel="stylesheet" href="src/styles.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -17,11 +16,12 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-
+    <link rel="stylesheet" href="src/styles.css" />
   </head>
   <body>
     <div class="container w-50 mt-5 border shadow">
-      <div class="row p-5" id="search-city">
+      <div class="weather-app">
+      <div class="row p-5 w" id="search-city">
         <div class="col-8">
           <form id="search-form">
           <input
@@ -47,8 +47,8 @@
           <div class="row date-time" id="current-time"></div>
           <div class="row weather" id="current-condition">Rainy</div>
           <div class="row"><h1 class="current-weather" id="current-temp">71°F</h1></div>
-                    <div class="row humidity" id="humidity">Humidity: 76%</div>
-          <div class="row precipitation" id="wind">Wind Speed: 5 mph</div>
+          <div class="row humidity" id="humidity">Humidity: 76%</div>
+          <div class="row wind" id="wind">Wind Speed: 5 mph</div>
         </div>
         <div class="col-6">
           <div class="row">
@@ -87,10 +87,12 @@
           <img class="week-weather" src="images/sunny.png" />
           <span class="next-temp">80°F | 60°F</span>
         </div>
-      </div>
+        </div>
+      
       <footer>
         <span>This project was coded by Eva Diep and is <a href="https://github.com/GothicHummingbird/weather-app.git">open-sourced on GitHub</a> and hosted on <a href="https://awesome-heisenberg-0ed922.netlify.app/">Netlify</a></span>
       </footer>
+      </div>
     </div>
     <script src="src/index.js"></script>
   </body>

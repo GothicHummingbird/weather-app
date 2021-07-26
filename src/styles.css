@@ -7,6 +7,9 @@ body {
 .container {
   background: rgb(244, 241, 222);
 }
+.weather-app {
+  max-width: 700px;
+}
 input.search {
   width: 100%;
   height: 100%;
@@ -38,13 +41,14 @@ img.current-weather {
 }
 .date-time,
 .weather,
-.precipitation,
+.wind,
 .humidity {
   font-size: 18px;
   padding-left: 12px;
   padding-right: 12px;
   color: rgb(224, 122, 95);
 }
+
 .week-weather {
   width: 50%;
   display: block;
@@ -52,7 +56,7 @@ img.current-weather {
 }
 .days {
   color: rgb(129, 178, 154);
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
 }
 .next-temp {

@@ -35,7 +35,7 @@ let submit = document.querySelector("#search-form");
 submit.addEventListener("submit", submitCity);
 
 //Default City
-enterCity("London");
+enterCity("New York");
 
 //Updates city with user submissions - Weather API
 
