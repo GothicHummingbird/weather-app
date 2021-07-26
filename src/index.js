@@ -61,9 +61,9 @@ function displayWeather(response) {
   let currentCondition = document.querySelector("#current-condition");
   currentCondition.innerHTML = response.data.weather[0].main;
 
-  let currentPrecipitation = document.querySelector("#precipitation");
-  let precipitation = response.data.precipitation.value;
-  currentPrecipitation.innerHTML = `Precipitation: ${precipitation}%`;
+  let currentWindSpeed = document.querySelector("#wind");
+  let windSpeed = response.data.wind.speed;
+  currentWindSpeed.innerHTML = `Wind: ${windSpeed} mph`;
 
   let currentHumidity = document.querySelector("#humidity");
   let humidity = response.data.main.humidity;
