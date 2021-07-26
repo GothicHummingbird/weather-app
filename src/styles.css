@@ -49,6 +49,7 @@ li {
 .forecast-row {
   padding-top: 1em !important;
   padding-bottom: 3em !important;
+  text-align: center;
 }
 .current-weather {
   float: left;
@@ -72,11 +73,18 @@ li {
   font-size: 20px;
   text-align: center;
 }
-.next-temp {
+.forecast-temperature-max,
+.forecast-temperature-min {
   font-size: 15px;
-  display: block;
   text-align: center;
-  padding-top: 1em;
+  line-height: 3;
+  font-weight: bold;
+}
+.forecast-temperature-max {
+  color: rgb(129, 178, 154);
+}
+.forecast-temperature-min {
+  color: rgba(129, 178, 154, 0.7);
 }
 footer {
   text-align: center;
