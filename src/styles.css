@@ -74,6 +74,9 @@ li {
 }
 .next-temp {
   font-size: 15px;
+  display: block;
+  text-align: center;
+  padding-top: 1em;
 }
 footer {
   text-align: center;
