@@ -44,16 +44,18 @@
           <div class="row">
             <h1 class="city" id="current-city"></h1>
           </div>
-          <div class="row date-time" id="current-time"></div>
-          <div class="row weather" id="current-condition">Rainy</div>
-          <div class="row"><h1 class="current-weather" id="current-temp">71°F</h1></div>
-          <div class="row humidity" id="humidity">Humidity: 76%</div>
-          <div class="row wind" id="wind">Wind Speed: 5 mph</div>
+          <ul>
+          <li class="row date-time" id="current-time"></li>
+          <li class="row weather" id="current-condition"></li>
+          <li class="row humidity" id="humidity"></li>
+          <li class="row wind" id="wind"></li>
+          </ul>
         </div>
-        <div class="col-6">
-          <div class="row">
+        <div class="col-6 clearfix">
+          <!-- <div class="row clearfix"> -->
+             <h1 class="current-weather" id="current-temp"></h1>
             <img class="weather-img" id="current-weather-icon" src="" alt=""/>
-          </div>
+          <!-- </div> -->
         </div>
       </div>
       <div class="row p-5">

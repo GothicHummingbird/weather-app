@@ -35,16 +35,17 @@ input.search {
 h1 {
   color: rgb(61, 64, 91);
 }
-.date-time,
-.weather,
-.wind,
-.humidity {
-  font-size: 18px;
-  padding-left: 12px;
-  padding-right: 12px;
+li {
+  font-size: 15px;
   color: rgb(224, 122, 95);
 }
-
+.current-weather {
+  float: right;
+}
+.weather-img {
+  float: left;
+  width: 50%;
+}
 .week-weather {
   width: 50%;
   display: block;
