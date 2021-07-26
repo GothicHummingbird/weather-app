@@ -39,6 +39,10 @@ li {
   font-size: 15px;
   color: rgb(224, 122, 95);
 }
+.condition {
+  padding-top: 1em !important;
+  padding-bottom: 1em !important;
+}
 .current-weather {
   float: left;
   font-size: 50px;
