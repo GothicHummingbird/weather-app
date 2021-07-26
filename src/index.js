@@ -34,6 +34,38 @@ function submitCity(event) {
 let submit = document.querySelector("#search-form");
 submit.addEventListener("submit", submitCity);
 
+//Display Future Forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#weather-forecast");
+  
+  let forecastHTML = `<div class="row">`;
+  let days = [
+  "Sun",
+  "Mon",
+  "Tues",
+  "Wed",
+  "Thurs",
+  "Fri",
+]
+days.forEach(function(days){
+  forecastHTML = forecastHTML +
+`
+    <div class="col-2">
+      <h3 class="days">${days}</h3>
+        <img class="week-weather" id="future-weather-icon" src="http://openweathermap.org/img/wn/50d@2x.png" />
+        <div class="forecast-temperature">
+          <span class="forecast-temperature-max">65°F</span>  <span class="forecast-temperature-min">40°F</span>
+        </div>
+    </div>
+`
+})
+
+
+forecastHTML = forecastHTML + `</div>`
+  forecastElement.innerHTML = forecastHTML
+
+}
+
 //Default City
 enterCity("New York");
 
@@ -48,7 +80,7 @@ function enterCity(city) {
 }
 
 function displayWeather(response) {
-  console.log(response);
+  // console.log(response);
   let temperature = Math.round(response.data.main.temp);
   //console.log(temperature);
 
@@ -78,6 +110,8 @@ function displayWeather(response) {
     "alt",
     `${response.data.weather[0].description}`
   );
+
+  displayForecast();
 }
 
 //Geolocation API
