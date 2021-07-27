@@ -37,7 +37,7 @@ submit.addEventListener("submit", submitCity);
 //Display Future Forecast
 function displayForecast(response) {
 
-  console.log(response.data);
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#weather-forecast");
   
   let forecastHTML = `<div class="row">`;
@@ -73,7 +73,7 @@ function getFutureForecast(coordinates) {
   // console.log(coordinates);
   let apiKey = "5562088dc6a08cb31f02b4a3aba8768d";
   let unit = "imperial";
-  let apiURL =`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=${unit}&appid=${apiKey}`
+  let apiUrl =`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=${unit}&appid=${apiKey}`;
 
   axios.get(apiUrl).then(displayForecast);
 }
