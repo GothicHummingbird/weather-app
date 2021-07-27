@@ -34,50 +34,6 @@ function submitCity(event) {
 let submit = document.querySelector("#search-form");
 submit.addEventListener("submit", submitCity);
 
-//Display Future Forecast
-function displayForecast(response) {
-
-  console.log(response.data.daily);
-  let forecastElement = document.querySelector("#weather-forecast");
-  
-  let forecastHTML = `<div class="row">`;
-  let days = [
-  "Sun",
-  "Mon",
-  "Tues",
-  "Wed",
-  "Thurs",
-  "Fri",
-]
-days.forEach(function(days){
-  forecastHTML = forecastHTML +
-`
-    <div class="col-2">
-      <h3 class="days">${days}</h3>
-        <img class="week-weather" id="future-weather-icon" src="http://openweathermap.org/img/wn/50d@2x.png" />
-        <div class="forecast-temperature">
-          <span class="forecast-temperature-max">65°F</span>  <span class="forecast-temperature-min">40°F</span>
-        </div>
-    </div>
-`
-})
-
-
-forecastHTML = forecastHTML + `</div>`
-  forecastElement.innerHTML = forecastHTML
-
-}
-
-//Get Long & Lat of Searched City
-function getFutureForecast(coordinates) {
-  // console.log(coordinates);
-  let apiKey = "5562088dc6a08cb31f02b4a3aba8768d";
-  let unit = "imperial";
-  let apiUrl =`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=${unit}&appid=${apiKey}`;
-
-  axios.get(apiUrl).then(displayForecast);
-}
-
 //Default City
 enterCity("New York");
 
@@ -147,3 +103,58 @@ function currentLocationButton(event) {
 
 let button = document.querySelector("#current-button");
 button.addEventListener("click", currentLocationButton);
+
+//Format Future Dates
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  
+  let days = [
+  "Sun",
+  "Mon",
+  "Tues",
+  "Wed",
+  "Thurs",
+  "Fri",
+  "Sat"
+]
+
+return days[day];
+}
+
+//Display Future Forecast
+function displayForecast(response) {
+
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#weather-forecast");
+  
+  let forecastHTML = `<div class="row">`;
+
+forecast.forEach(function(forecastDay, index){
+  if (index < 6 ) {  
+    forecastHTML = forecastHTML +
+    `
+    <div class="col-2">
+      <h3 class="days">${formatDay(forecastDay.dt)}</h3>
+        <img class="week-weather" id="future-weather-icon" src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" />
+        <div class="forecast-temperature">
+          <span class="forecast-temperature-max">${Math.round(forecastDay.temp.max)}°F</span>  <span class="forecast-temperature-min">${Math.round(forecastDay.temp.min)}°F</span>
+        </div>
+    </div>
+    `}
+  })
+
+forecastHTML = forecastHTML + `</div>`
+  forecastElement.innerHTML = forecastHTML
+
+}
+
+//Get Long & Lat of Searched City
+function getFutureForecast(coordinates) {
+  // console.log(coordinates);
+  let apiKey = "5562088dc6a08cb31f02b4a3aba8768d";
+  let unit = "imperial";
+  let apiUrl =`https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=${unit}&appid=${apiKey}`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
